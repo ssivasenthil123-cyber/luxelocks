@@ -1,0 +1,1403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LuxeLocks | Premium Hair & Jewelry</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;800&family=Montserrat:wght@300;400;500;600&family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-gold: #D4B483;
+            --secondary-gold: #F5E6CA;
+            --deep-black: #0A0A0A;
+            --charcoal: #1A1A1A;
+            --light-charcoal: #2D2D2D;
+            --platinum: #E8E8E8;
+            --silver: #C0C0C0;
+            --accent: #B76E79;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--deep-black);
+            color: var(--platinum);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header & Navigation */
+        header {
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            padding: 15px 0;
+            border-bottom: 2px solid var(--primary-gold);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: var(--primary-gold);
+            letter-spacing: 2px;
+            text-shadow: 0 2px 10px rgba(212, 180, 131, 0.3);
+        }
+
+        .logo span {
+            font-family: 'Dancing Script', cursive;
+            color: var(--secondary-gold);
+            font-size: 3rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--platinum);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+            position: relative;
+            padding: 5px 0;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-gold);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--primary-gold);
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+
+        .cart-btn {
+            position: relative;
+            background: none;
+            border: none;
+            color: var(--platinum);
+            font-size: 1.4rem;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .cart-btn:hover {
+            color: var(--primary-gold);
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background: var(--accent);
+            color: var(--platinum);
+            font-size: 0.8rem;
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+        }
+
+        /* Main Content */
+        main {
+            padding-top: 100px;
+            min-height: calc(100vh - 200px);
+        }
+
+        /* Home Page */
+        .hero {
+            text-align: center;
+            padding: 80px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(212, 180, 131, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(183, 110, 121, 0.1) 0%, transparent 50%);
+            z-index: -1;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            color: var(--primary-gold);
+            margin-bottom: 20px;
+            text-shadow: 0 2px 15px rgba(212, 180, 131, 0.2);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            color: var(--silver);
+            max-width: 700px;
+            margin: 0 auto 40px;
+            line-height: 1.8;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .btn {
+            padding: 15px 35px;
+            border: none;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .btn-gold {
+            background: linear-gradient(45deg, var(--primary-gold), #B89B6D);
+            color: var(--deep-black);
+        }
+
+        .btn-gold:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(212, 180, 131, 0.3);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--platinum);
+            border: 2px solid var(--primary-gold);
+        }
+
+        .btn-outline:hover {
+            background: var(--primary-gold);
+            color: var(--deep-black);
+            transform: translateY(-3px);
+        }
+
+        /* Category Cards */
+        .categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            padding: 60px 0;
+        }
+
+        .category-card {
+            background: var(--charcoal);
+            border-radius: 15px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 1px solid var(--light-charcoal);
+        }
+
+        .category-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary-gold);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .category-header {
+            background: linear-gradient(45deg, var(--charcoal), var(--light-charcoal));
+            padding: 30px;
+            text-align: center;
+        }
+
+        .category-icon {
+            font-size: 3.5rem;
+            color: var(--primary-gold);
+            margin-bottom: 15px;
+        }
+
+        .category-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            color: var(--platinum);
+        }
+
+        .category-body {
+            padding: 25px;
+            text-align: center;
+        }
+
+        .category-desc {
+            color: var(--silver);
+            margin-bottom: 25px;
+            line-height: 1.7;
+        }
+
+        /* Products Page */
+        .products-header {
+            text-align: center;
+            padding: 60px 0 40px;
+        }
+
+        .page-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            color: var(--primary-gold);
+            margin-bottom: 20px;
+        }
+
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--silver);
+            text-decoration: none;
+            margin-bottom: 30px;
+            transition: color 0.3s;
+        }
+
+        .back-btn:hover {
+            color: var(--primary-gold);
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            padding: 40px 0;
+        }
+
+        .product-card {
+            background: var(--charcoal);
+            border-radius: 15px;
+            overflow: hidden;
+            border: 1px solid var(--light-charcoal);
+            transition: all 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary-gold);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .product-image {
+            height: 250px;
+            background: linear-gradient(45deg, var(--light-charcoal), var(--charcoal));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: var(--primary-gold);
+        }
+
+        .product-info {
+            padding: 25px;
+        }
+
+        .product-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            color: var(--platinum);
+            margin-bottom: 10px;
+        }
+
+        .product-price {
+            font-size: 1.8rem;
+            color: var(--primary-gold);
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .quantity-control {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .qty-btn {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            background: var(--light-charcoal);
+            border: none;
+            color: var(--platinum);
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .qty-btn:hover {
+            background: var(--primary-gold);
+            color: var(--deep-black);
+        }
+
+        .quantity {
+            font-size: 1.2rem;
+            font-weight: 600;
+            min-width: 30px;
+            text-align: center;
+        }
+
+        .add-to-cart-btn {
+            width: 100%;
+            background: linear-gradient(45deg, var(--primary-gold), #B89B6D);
+            color: var(--deep-black);
+            border: none;
+            padding: 14px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .add-to-cart-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(212, 180, 131, 0.3);
+        }
+
+        /* Cart Modal */
+        .cart-modal {
+            position: fixed;
+            top: 0;
+            right: -400px;
+            width: 380px;
+            height: 100%;
+            background: var(--deep-black);
+            z-index: 2000;
+            transition: right 0.4s ease;
+            border-left: 2px solid var(--primary-gold);
+            box-shadow: -5px 0 25px rgba(0, 0, 0, 0.5);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .cart-modal.active {
+            right: 0;
+        }
+
+        .cart-header {
+            padding: 25px;
+            border-bottom: 1px solid var(--light-charcoal);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .cart-header h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: var(--primary-gold);
+        }
+
+        .close-cart {
+            background: none;
+            border: none;
+            color: var(--platinum);
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .close-cart:hover {
+            color: var(--primary-gold);
+        }
+
+        .cart-items {
+            flex-grow: 1;
+            overflow-y: auto;
+            padding: 20px;
+        }
+
+        .cart-item {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            background: var(--charcoal);
+            border-radius: 10px;
+            margin-bottom: 15px;
+            border: 1px solid var(--light-charcoal);
+        }
+
+        .cart-item-img {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(45deg, var(--light-charcoal), var(--charcoal));
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            color: var(--primary-gold);
+            margin-right: 15px;
+        }
+
+        .cart-item-details {
+            flex-grow: 1;
+        }
+
+        .cart-item-name {
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .cart-item-price {
+            color: var(--primary-gold);
+            font-weight: 600;
+        }
+
+        .cart-item-qty {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 8px;
+        }
+
+        .cart-item-qty .qty-btn {
+            width: 25px;
+            height: 25px;
+            font-size: 1rem;
+        }
+
+        .remove-item {
+            background: none;
+            border: none;
+            color: #ff6b6b;
+            cursor: pointer;
+            font-size: 0.9rem;
+            margin-left: 10px;
+        }
+
+        .cart-footer {
+            padding: 25px;
+            border-top: 1px solid var(--light-charcoal);
+        }
+
+        .cart-total {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+        }
+
+        .total-label {
+            color: var(--silver);
+        }
+
+        .total-amount {
+            color: var(--primary-gold);
+            font-weight: 600;
+            font-size: 1.5rem;
+        }
+
+        .share-whatsapp {
+            width: 100%;
+            background: linear-gradient(45deg, #25D366, #128C7E);
+            color: white;
+            border: none;
+            padding: 16px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+
+        .share-whatsapp:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
+        }
+
+        /* Overlay */
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 1999;
+            display: none;
+        }
+
+        .overlay.active {
+            display: block;
+        }
+
+        /* About & Contact Pages */
+        .page-content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 60px 0;
+        }
+
+        .page-content h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            color: var(--primary-gold);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .content-box {
+            background: var(--charcoal);
+            padding: 40px;
+            border-radius: 15px;
+            border: 1px solid var(--light-charcoal);
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .contact-item {
+            text-align: center;
+            padding: 25px;
+            background: var(--light-charcoal);
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary-gold);
+        }
+
+        .contact-icon {
+            font-size: 2.5rem;
+            color: var(--primary-gold);
+            margin-bottom: 15px;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .form-group label {
+            color: var(--silver);
+            font-weight: 500;
+        }
+
+        .form-control {
+            padding: 14px;
+            background: var(--light-charcoal);
+            border: 1px solid transparent;
+            border-radius: 8px;
+            color: var(--platinum);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary-gold);
+            background: var(--charcoal);
+        }
+
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--charcoal);
+            padding: 50px 0 20px;
+            margin-top: 60px;
+            border-top: 2px solid var(--primary-gold);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: var(--primary-gold);
+            margin-bottom: 20px;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: var(--silver);
+            margin-bottom: 10px;
+            display: block;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-section a:hover {
+            color: var(--primary-gold);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--light-charcoal);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--platinum);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background: var(--primary-gold);
+            color: var(--deep-black);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid var(--light-charcoal);
+            color: var(--silver);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .nav-links {
+                gap: 20px;
+            }
+            
+            .logo {
+                font-size: 2.2rem;
+            }
+            
+            .hero h1 {
+                font-size: 3rem;
+            }
+            
+            .cart-modal {
+                width: 100%;
+                right: -100%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .hero {
+                padding: 50px 0;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo {
+                font-size: 1.8rem;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .page-title {
+                font-size: 2.5rem;
+            }
+            
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <header>
+        <div class="container nav-container">
+            <div class="logo">Luxe<span>Locks</span></div>
+            <ul class="nav-links">
+                <li><a href="#" class="active" onclick="showPage('home')">Home</a></li>
+                <li><a href="#" onclick="showPage('hair')">Hair Accessories</a></li>
+                <li><a href="#" onclick="showPage('jewelry')">Jewelry</a></li>
+                <li><a href="#" onclick="showPage('about')">About Us</a></li>
+                <li><a href="#" onclick="showPage('contact')">Contact Us</a></li>
+            </ul>
+            <div class="nav-right">
+                <button class="cart-btn" onclick="toggleCart()">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span class="cart-count">0</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main-content">
+        <!-- Home Page -->
+        <div id="home-page" class="page">
+            <section class="hero">
+                <div class="container">
+                    <h1>Elevate Your Style with LuxeLocks</h1>
+                    <p>Discover our exquisite collection of premium hair accessories and fine jewelry. Each piece is crafted with precision and passion, designed to add elegance to your everyday moments.</p>
+                    <div class="cta-buttons">
+                        <button class="btn btn-gold" onclick="showPage('hair')">Shop Hair Accessories</button>
+                        <button class="btn btn-outline" onclick="showPage('jewelry')">Shop Jewelry</button>
+                    </div>
+                </div>
+            </section>
+
+            <div class="container">
+                <div class="categories">
+                    <div class="category-card" onclick="showPage('hair')">
+                        <div class="category-header">
+                            <i class="fas fa-crown category-icon"></i>
+                            <h2 class="category-title">Hair Accessories</h2>
+                        </div>
+                        <div class="category-body">
+                            <p class="category-desc">Elegant hairpins, luxurious clips, and stunning bands designed to transform your look.</p>
+                            <button class="btn btn-gold">View Collection</button>
+                        </div>
+                    </div>
+
+                    <div class="category-card" onclick="showPage('jewelry')">
+                        <div class="category-header">
+                            <i class="fas fa-gem category-icon"></i>
+                            <h2 class="category-title">Fine Jewelry</h2>
+                        </div>
+                        <div class="category-body">
+                            <p class="category-desc">Exquisite necklaces, earrings, and bracelets crafted with premium materials.</p>
+                            <button class="btn btn-gold">View Collection</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Hair Accessories Page -->
+        <div id="hair-page" class="page" style="display: none;">
+            <div class="container">
+                <div class="products-header">
+                    <a href="#" class="back-btn" onclick="showPage('home')">
+                        <i class="fas fa-arrow-left"></i> Back to Home
+                    </a>
+                    <h1 class="page-title">Hair Accessories Collection</h1>
+                </div>
+                <div class="products-grid" id="hair-products">
+                    <!-- Hair products will be loaded here -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Jewelry Page -->
+        <div id="jewelry-page" class="page" style="display: none;">
+            <div class="container">
+                <div class="products-header">
+                    <a href="#" class="back-btn" onclick="showPage('home')">
+                        <i class="fas fa-arrow-left"></i> Back to Home
+                    </a>
+                    <h1 class="page-title">Fine Jewelry Collection</h1>
+                </div>
+                <div class="products-grid" id="jewelry-products">
+                    <!-- Jewelry products will be loaded here -->
+                </div>
+            </div>
+        </div>
+
+        <!-- About Us Page -->
+        <div id="about-page" class="page" style="display: none;">
+            <div class="container">
+                <div class="page-content">
+                    <h1>About LuxeLocks</h1>
+                    <div class="content-box">
+                        <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 25px;">
+                            Welcome to LuxeLocks, where elegance meets craftsmanship. Founded with a passion for creating beautiful accessories that empower self-expression, we've been dedicated to bringing premium quality hair accessories and jewelry to discerning customers since 2020.
+                        </p>
+                        <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 25px;">
+                            Our journey began with a simple vision: to create accessories that are not just beautiful, but meaningful. Each piece in our collection is thoughtfully designed and meticulously crafted, blending traditional techniques with contemporary aesthetics.
+                        </p>
+                        <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 25px;">
+                            At LuxeLocks, we believe in sustainability and ethical practices. We source our materials responsibly and work closely with skilled artisans who share our commitment to quality and fair working conditions.
+                        </p>
+                        <p style="font-size: 1.1rem; line-height: 1.8;">
+                            Thank you for choosing LuxeLocks. We're honored to be part of your journey to express your unique style and celebrate life's special moments.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contact Us Page -->
+        <div id="contact-page" class="page" style="display: none;">
+            <div class="container">
+                <div class="page-content">
+                    <h1>Contact Us</h1>
+                    <div class="content-box">
+                        <div class="contact-info">
+                            <div class="contact-item">
+                                <i class="fas fa-phone contact-icon"></i>
+                                <h3>Phone</h3>
+                                <p>+91 97876 62624</p>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-envelope contact-icon"></i>
+                                <h3>Email</h3>
+                                <p>info@luxelocks.com</p>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-clock contact-icon"></i>
+                                <h3>Business Hours</h3>
+                                <p>Mon-Sat: 10AM - 8PM</p>
+                                <p>Sunday: 11AM - 6PM</p>
+                            </div>
+                        </div>
+                        
+                        <form class="contact-form" id="contactForm">
+                            <div class="form-group">
+                                <label for="name">Full Name</label>
+                                <input type="text" id="name" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email Address</label>
+                                <input type="email" id="email" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="subject">Subject</label>
+                                <input type="text" id="subject" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Message</label>
+                                <textarea id="message" class="form-control" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-gold" style="align-self: flex-start;">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Cart Modal -->
+    <div class="cart-modal" id="cartModal">
+        <div class="cart-header">
+            <h3>Your Shopping Bag</h3>
+            <button class="close-cart" onclick="toggleCart()">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="cart-items" id="cartItems">
+            <!-- Cart items will be loaded here -->
+            <p style="text-align: center; color: var(--silver); padding: 40px 20px;">Your cart is empty</p>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span class="total-label">Total:</span>
+                <span class="total-amount">₹<span id="cartTotal">0</span></span>
+            </div>
+            <button class="share-whatsapp" onclick="shareCartViaWhatsApp()">
+                <i class="fab fa-whatsapp"></i>
+                Share Cart on WhatsApp
+            </button>
+        </div>
+    </div>
+
+    <!-- Overlay -->
+    <div class="overlay" id="overlay" onclick="toggleCart()"></div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>LuxeLocks</h4>
+                    <p>Premium hair accessories and fine jewelry crafted with passion and precision.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-pinterest-p"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <a href="#" onclick="showPage('home')">Home</a>
+                    <a href="#" onclick="showPage('hair')">Hair Accessories</a>
+                    <a href="#" onclick="showPage('jewelry')">Jewelry</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <a href="#" onclick="showPage('about')">About Us</a>
+                    <a href="#" onclick="showPage('contact')">Contact Us</a>
+                    <a href="#">Shipping Policy</a>
+                    <a href="#">Returns & Exchanges</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <p><i class="fas fa-phone"></i> +91 97876 62624</p>
+                    <p><i class="fas fa-envelope"></i> info@luxelocks.com</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Mumbai, India</p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2024 LuxeLocks. All rights reserved. | Crafted with <i class="fas fa-heart" style="color: var(--accent);"></i></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Product Data
+        const products = {
+            hair: [
+                { id: 1, name: "Golden Hair Crown", price: 2499, icon: "fas fa-crown" },
+                { id: 2, name: "Pearl Hair Pins Set", price: 1899, icon: "fas fa-gem" },
+                { id: 3, name: "Velvet Scrunchies", price: 1299, icon: "fas fa-circle" },
+                { id: 4, name: "Crystal Hair Comb", price: 3299, icon: "fas fa-star" },
+                { id: 5, name: "Bohemian Headband", price: 2199, icon: "fas fa-headband" },
+                { id: 6, name: "Minimalist Barrettes", price: 1599, icon: "fas fa-grip-lines" },
+                { id: 7, name: "Floral Hair Vine", price: 2799, icon: "fas fa-leaf" },
+                { id: 8, name: "Silk Ribbon Set", price: 1799, icon: "fas fa-ribbon" },
+                { id: 9, name: "Gemstone Hair Stick", price: 2999, icon: "fas fa-magic" },
+                { id: 10, name: "Elegant Claw Clip", price: 1499, icon: "fas fa-grip" }
+            ],
+            jewelry: [
+                { id: 11, name: "Silver Dangle Earrings", price: 4299, icon: "fas fa-ring" },
+                { id: 12, name: "Gold Layered Necklace", price: 8999, icon: "fas fa-link" },
+                { id: 13, name: "Pearl Stud Earrings", price: 3599, icon: "fas fa-circle" },
+                { id: 14, name: "Stackable Rings Set", price: 5599, icon: "fas fa-gem" },
+                { id: 15, name: "Gemstone Bracelet", price: 4599, icon: "fas fa-circle-notch" },
+                { id: 16, name: "Moon Pendant Necklace", price: 3899, icon: "fas fa-moon" },
+                { id: 17, name: "Hoop Earrings Set", price: 2799, icon: "fas fa-circle" },
+                { id: 18, name: "Charm Anklet", price: 2299, icon: "fas fa-heart" },
+                { id: 19, name: "Statement Cuff Bracelet", price: 6799, icon: "fas fa-bolt" },
+                { id: 20, name: "Delicate Chain Bracelet", price: 3199, icon: "fas fa-link" }
+            ]
+        };
+
+        // Shopping Cart
+        let cart = JSON.parse(localStorage.getItem('luxelocks_cart')) || [];
+
+        // DOM Elements
+        const pages = {
+            home: document.getElementById('home-page'),
+            hair: document.getElementById('hair-page'),
+            jewelry: document.getElementById('jewelry-page'),
+            about: document.getElementById('about-page'),
+            contact: document.getElementById('contact-page')
+        };
+
+        const navLinks = document.querySelectorAll('.nav-links a');
+        const cartModal = document.getElementById('cartModal');
+        const overlay = document.getElementById('overlay');
+        const cartCount = document.querySelector('.cart-count');
+        const cartItems = document.getElementById('cartItems');
+        const cartTotal = document.getElementById('cartTotal');
+
+        // Initialize the app
+        function init() {
+            renderProducts('hair', 'hair-products');
+            renderProducts('jewelry', 'jewelry-products');
+            updateCartUI();
+            
+            // Event Listeners
+            navLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    navLinks.forEach(l => l.classList.remove('active'));
+                    link.classList.add('active');
+                });
+            });
+
+            // Contact form submission
+            const contactForm = document.getElementById('contactForm');
+            if (contactForm) {
+                contactForm.addEventListener('submit', handleContactSubmit);
+            }
+
+            // Check for page in URL hash
+            const hash = window.location.hash.substring(1);
+            if (hash && pages[hash]) {
+                showPage(hash);
+            }
+        }
+
+        // Show specific page
+        function showPage(pageId) {
+            // Hide all pages
+            Object.values(pages).forEach(page => {
+                page.style.display = 'none';
+            });
+            
+            // Show selected page
+            if (pages[pageId]) {
+                pages[pageId].style.display = 'block';
+            }
+            
+            // Update navigation
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.textContent.toLowerCase().includes(pageId) || 
+                    (pageId === 'home' && link.textContent === 'Home')) {
+                    link.classList.add('active');
+                }
+            });
+            
+            // Update URL hash
+            window.location.hash = pageId;
+            
+            // Scroll to top
+            window.scrollTo(0, 0);
+        }
+
+        // Render products for a category
+        function renderProducts(category, containerId) {
+            const container = document.getElementById(containerId);
+            if (!container) return;
+
+            const productList = products[category] || [];
+            container.innerHTML = '';
+
+            productList.forEach(product => {
+                const productCard = document.createElement('div');
+                productCard.className = 'product-card';
+                productCard.innerHTML = `
+                    <div class="product-image">
+                        <i class="${product.icon}"></i>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">${product.name}</h3>
+                        <p class="product-price">₹${product.price.toLocaleString()}</p>
+                        <div class="quantity-control">
+                            <button class="qty-btn" onclick="updateQuantity(${product.id}, -1)">
+                                <i class="fas fa-minus"></i>
+                            </button>
+                            <span class="quantity" id="qty-${product.id}">1</span>
+                            <button class="qty-btn" onclick="updateQuantity(${product.id}, 1)">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </div>
+                        <button class="add-to-cart-btn" onclick="addToCart(${product.id})">
+                            <i class="fas fa-shopping-bag"></i> Add to Cart
+                        </button>
+                    </div>
+                `;
+                container.appendChild(productCard);
+            });
+        }
+
+        // Update product quantity
+        function updateQuantity(productId, change) {
+            const quantityElement = document.getElementById(`qty-${productId}`);
+            if (!quantityElement) return;
+
+            let quantity = parseInt(quantityElement.textContent) + change;
+            if (quantity < 1) quantity = 1;
+            quantityElement.textContent = quantity;
+        }
+
+        // Add product to cart
+        function addToCart(productId) {
+            // Find the product
+            let product = null;
+            for (const category in products) {
+                product = products[category].find(p => p.id === productId);
+                if (product) break;
+            }
+
+            if (!product) return;
+
+            // Get quantity
+            const quantityElement = document.getElementById(`qty-${productId}`);
+            const quantity = quantityElement ? parseInt(quantityElement.textContent) : 1;
+
+            // Check if product already in cart
+            const existingItem = cart.find(item => item.id === productId);
+
+            if (existingItem) {
+                existingItem.quantity += quantity;
+            } else {
+                cart.push({
+                    id: product.id,
+                    name: product.name,
+                    price: product.price,
+                    icon: product.icon,
+                    quantity: quantity
+                });
+            }
+
+            // Save to localStorage
+            localStorage.setItem('luxelocks_cart', JSON.stringify(cart));
+
+            // Update UI
+            updateCartUI();
+
+            // Show success feedback
+            showNotification(`${product.name} added to cart!`);
+        }
+
+        // Update cart UI
+        function updateCartUI() {
+            // Update cart count
+            const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
+            cartCount.textContent = totalItems;
+
+            // Update cart items display
+            if (cart.length === 0) {
+                cartItems.innerHTML = '<p style="text-align: center; color: var(--silver); padding: 40px 20px;">Your cart is empty</p>';
+                cartTotal.textContent = '0';
+            } else {
+                let cartHTML = '';
+                let total = 0;
+
+                cart.forEach((item, index) => {
+                    const itemTotal = item.price * item.quantity;
+                    total += itemTotal;
+
+                    cartHTML += `
+                        <div class="cart-item">
+                            <div class="cart-item-img">
+                                <i class="${item.icon}"></i>
+                            </div>
+                            <div class="cart-item-details">
+                                <div class="cart-item-name">${item.name}</div>
+                                <div class="cart-item-price">₹${item.price.toLocaleString()}</div>
+                                <div class="cart-item-qty">
+                                    <button class="qty-btn" onclick="updateCartItemQuantity(${item.id}, -1)">
+                                        <i class="fas fa-minus"></i>
+                                    </button>
+                                    <span>${item.quantity}</span>
+                                    <button class="qty-btn" onclick="updateCartItemQuantity(${item.id}, 1)">
+                                        <i class="fas fa-plus"></i>
+                                    </button>
+                                    <button class="remove-item" onclick="removeFromCart(${index})">
+                                        Remove
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                });
+
+                cartItems.innerHTML = cartHTML;
+                cartTotal.textContent = total.toLocaleString();
+            }
+        }
+
+        // Update cart item quantity
+        function updateCartItemQuantity(productId, change) {
+            const item = cart.find(item => item.id === productId);
+
+            if (item) {
+                item.quantity += change;
+
+                if (item.quantity <= 0) {
+                    const index = cart.findIndex(i => i.id === productId);
+                    if (index !== -1) {
+                        cart.splice(index, 1);
+                    }
+                }
+
+                localStorage.setItem('luxelocks_cart', JSON.stringify(cart));
+                updateCartUI();
+            }
+        }
+
+        // Remove item from cart
+        function removeFromCart(index) {
+            cart.splice(index, 1);
+            localStorage.setItem('luxelocks_cart', JSON.stringify(cart));
+            updateCartUI();
+        }
+
+        // Toggle cart modal
+        function toggleCart() {
+            cartModal.classList.toggle('active');
+            overlay.classList.toggle('active');
+            document.body.style.overflow = cartModal.classList.contains('active') ? 'hidden' : 'auto';
+        }
+
+        // Share cart via WhatsApp
+        function shareCartViaWhatsApp() {
+            if (cart.length === 0) {
+                showNotification('Your cart is empty. Add some items first!');
+                return;
+            }
+
+            const phoneNumber = '919787662624'; // Your number in international format
+            let message = `Hello LuxeLocks!%0A%0AI'm interested in these items:%0A%0A`;
+
+            cart.forEach((item, index) => {
+                message += `${index + 1}. ${item.name} - ₹${item.price.toLocaleString()} × ${item.quantity}%0A`;
+            });
+
+            const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            message += `%0ATotal: ₹${total.toLocaleString()}%0A%0APlease let me know about availability and delivery options.`;
+
+            const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
+            window.open(whatsappUrl, '_blank');
+        }
+
+        // Handle contact form submission
+        function handleContactSubmit(e) {
+            e.preventDefault();
+
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const subject = document.getElementById('subject').value;
+            const message = document.getElementById('message').value;
+
+            // Prepare WhatsApp message
+            const phoneNumber = '919787662624';
+            const whatsappMessage = `New Contact Form Submission:%0A%0AName: ${name}%0AEmail: ${email}%0ASubject: ${subject}%0AMessage: ${message}`;
+            
+            const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(whatsappMessage)}`;
+            window.open(whatsappUrl, '_blank');
+
+            // Show success message
+            showNotification('Message sent successfully! We will contact you soon.');
+            
+            // Reset form
+            e.target.reset();
+        }
+
+        // Show notification
+        function showNotification(message) {
+            // Create notification element
+            const notification = document.createElement('div');
+            notification.style.cssText = `
+                position: fixed;
+                top: 100px;
+                right: 20px;
+                background: var(--primary-gold);
+                color: var(--deep-black);
+                padding: 15px 25px;
+                border-radius: 8px;
+                font-weight: 600;
+                z-index: 3000;
+                animation: slideIn 0.3s ease;
+                box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            `;
+            
+            notification.textContent = message;
+            document.body.appendChild(notification);
+            
+            // Remove after 3 seconds
+            setTimeout(() => {
+                notification.style.animation = 'slideOut 0.3s ease';
+                setTimeout(() => notification.remove(), 300);
+            }, 3000);
+        }
+
+        // Add CSS animations
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes slideIn {
+                from { transform: translateX(100%); opacity: 0; }
+                to { transform: translateX(0); opacity: 1; }
+            }
+            @keyframes slideOut {
+                from { transform: translateX(0); opacity: 1; }
+                to { transform: translateX(100%); opacity: 0; }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Initialize app when DOM is loaded
+        document.addEventListener('DOMContentLoaded', init);
+    </script>
+</body>
+</html>
